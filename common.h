@@ -32,8 +32,23 @@ struct Var {
 };
 
 template<typename T>
+void read2(const Var<T> &a, const Var<T> &b)
+{
+  std::cout << "read " << a.name << '\n';
+  std::cout << "read " << b.name << '\n'; 
+}
+
+template<typename T>
+void read1(const Var<T> a)
+{
+  std::cout << "read " << a.name << '\n';
+}
+
+
+template<typename T>
 Var<T> operator+(const Var<T> a, const Var<T> b)
 {
+  read2(a,b);
   Var<T> temp("temp");
   temp = a.value+b.value;
   return temp;
@@ -42,6 +57,7 @@ Var<T> operator+(const Var<T> a, const Var<T> b)
 template<typename T>
 Var<T> operator-(const Var<T> a, const Var<T> b)
 {
+  read2(a,b);
   Var<T> temp("temp");
   temp = a.value-b.value;
   return temp;
@@ -50,6 +66,7 @@ Var<T> operator-(const Var<T> a, const Var<T> b)
 template<typename T>
 Var<T> operator*(const Var<T> a, const Var<T> b)
 {
+  read2(a,b);
   Var<T> temp("temp");
   temp = a.value*b.value;
   return temp;
@@ -58,6 +75,7 @@ Var<T> operator*(const Var<T> a, const Var<T> b)
 template<typename T>
 Var<T> operator+(const Var<T> a, const T b)
 {
+  read1(a);
   Var<T> temp("temp");
   temp = a.value+b;
   return temp;
@@ -66,6 +84,7 @@ Var<T> operator+(const Var<T> a, const T b)
 template<typename T>
 Var<T> operator+(const T a, const Var<T> b)
 {
+  read1(b);
   Var<T> temp("temp");
   temp = a+b.value;
   return temp;
@@ -74,6 +93,7 @@ Var<T> operator+(const T a, const Var<T> b)
 template<typename T>
 Var<T> operator*(const Var<T> a, const T b)
 {
+  read1(a);
   Var<T> temp("temp");
   temp = a.value*b;
   return temp;
@@ -82,6 +102,7 @@ Var<T> operator*(const Var<T> a, const T b)
 template<typename T>
 Var<T> operator*(const T a, const Var<T> b)
 {
+  read1(b);
   Var<T> temp("temp");
   temp = a*b.value;
   return temp;
