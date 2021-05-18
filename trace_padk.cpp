@@ -3,11 +3,8 @@
 const int s0 = 16;
 const int s1 = 16;
 const int s2 = 16;
-const int size = s0*s1*s2;
-
-
 const int s2padded = s2 + 2;
-const int array_size_padded = s0 * s1 * s2padded;
+const int size = s0*s1*s2padded;
 
 int gamma_padded(int i, int j, int k) {
   return  i * s1 * s2padded + j * s2padded + k;
