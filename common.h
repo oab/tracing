@@ -112,7 +112,7 @@ Var<T> operator*(const T a, const Var<T> b)
 template<typename T, std::size_t N> 
 struct Vars {
   std::string name;
-  Var<T> vars[N];
+  std::array<Var<T>,N> vars;
   
   Vars(std::string s):name{s}
   {
